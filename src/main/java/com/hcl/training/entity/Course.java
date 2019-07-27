@@ -31,7 +31,7 @@ public class Course {
 	private String courceDescription;
 	
 	@Column(name="cource_duration")
-	private Long courceDuration;
+	private int courceDuration;
 	
 	
 	@OneToOne(fetch = FetchType.EAGER)

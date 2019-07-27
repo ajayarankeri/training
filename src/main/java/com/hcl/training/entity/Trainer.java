@@ -20,10 +20,10 @@ public class Trainer {
 	private Long trainerId;
 	
 	@Column(name="trainer_name")
-	private Long trainerName;
+	private String trainerName;
 	
 	@Column(name="skill")
-	private Long skill;
+	private String skill;
 	
 	
 

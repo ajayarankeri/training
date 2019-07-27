@@ -28,8 +28,10 @@ public class Trainee {
 	@Column(name="trainee_age")
 	private int traineeAge;
 	
-	@Column(name="trainee_mail")
-	private String traineeMail;
+
+	@Column(name="trainee_email")
+	private String traineeEmail;
+
 		
 	@Column(name="trainee_mobile")
 	private String traineeMobile;
@@ -38,6 +40,7 @@ public class Trainee {
 	private String traineeSkill;
 	
 	@Column(name="trainee_proficiency")
-	private int traineeProficiency;
+	private String traineeProficiency;
+
 
 }
