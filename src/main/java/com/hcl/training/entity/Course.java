@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -20,18 +21,19 @@ public class Course {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cource_id")
-	private Long courceId;
+	@Column(name="course_id")
+	@JsonIgnore
+	private Long courseId;
 	
 	
-	@Column(name="cource_name")
-	private String courceName;
+	@Column(name="course_name")
+	private String courseName;
 	
-	@Column(name="cource_description")
-	private String courceDescription;
+	@Column(name="course_description")
+	private String courseDescription;
 	
-	@Column(name="cource_duration")
-	private int courceDuration;
+	@Column(name="course_duration")
+	private int courseDuration;
 	
 	
 	@OneToOne(fetch = FetchType.EAGER)
