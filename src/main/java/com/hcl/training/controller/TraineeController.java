@@ -1,11 +1,13 @@
 package com.hcl.training.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,8 +42,15 @@ public class TraineeController {
 
 	
 	@GetMapping("{couserName}")
-	public ResponseEntity<List<Course>> getAvailableCources(@PathVariable("couserName") String couserName) {		
-		return new ResponseEntity<>(traineeService.getAvailableCources( couserName),HttpStatus.OK);		
+	public ResponseEntity<Object> getAvailableCources(@PathVariable("couserName") String couserName) {	
+		List<Course> listOfCourses=new ArrayList<Course>();
+		listOfCourses=traineeService.getAvailableCources(couserName);
+		if(ObjectUtils.isEmpty(listOfCourses)) {
+			return new ResponseEntity<>("No Courses Found",HttpStatus.NOT_FOUND);
+		}
+		else {
+			return new ResponseEntity<>(listOfCourses,HttpStatus.OK);
+		}
 	}
 
 }
