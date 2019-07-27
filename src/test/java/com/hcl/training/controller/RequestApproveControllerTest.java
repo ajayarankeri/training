@@ -1,18 +1,16 @@
-package com.hcl.training.service;
+package com.hcl.training.controller;
 
 import static org.junit.Assert.assertNotNull;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.hcl.training.dto.ApproveRequestDto;
@@ -22,27 +20,24 @@ import com.hcl.training.entity.Course;
 import com.hcl.training.entity.Trainee;
 import com.hcl.training.entity.Trainer;
 import com.hcl.training.exception.ResourceNotFoundException;
-import com.hcl.training.repository.AssignmentRepository;
-import com.hcl.training.repository.CourseRepository;
-import com.hcl.training.repository.TraineeRepository;
+import com.hcl.training.service.AssignmentService;
+import com.hcl.training.service.TrainerService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class TraineeServiceTest {
-
+public class RequestApproveControllerTest {
+	
 	@InjectMocks
+	TraineeController traineeController;
+	
+	@InjectMocks
+	TrainerController trainerController;
+	
+	@Mock
 	AssignmentService assignmentService;
 	
-	@InjectMocks
+	@Mock
 	TrainerService trainerService;
-	
-	@Mock
-	CourseRepository courseRepository;
-	
-	@Mock
-	TraineeRepository traineeRepository;
 
-	@Mock
-	AssignmentRepository assignmentRepository;
     
 	
 	Trainee trainee;
@@ -106,18 +101,15 @@ public class TraineeServiceTest {
         assignemnt.setFromDate(LocalDate.parse("2019-07-26"));
         assignemnt.setToDate(LocalDate.parse("2019-07-26"));
 	}
-	
+
+
 	@Test
-	public void sentRequestTest() throws ResourceNotFoundException {
-		Mockito.when(courseRepository.findById(1l)).thenReturn(Optional.of(course1));
-		Mockito.when(traineeRepository.findById(1l)).thenReturn(Optional.of(trainee));
-		assertNotNull(assignmentService.saveCourseRequest(courseRequestDto));
+	public void sentRequestControolerTest() throws ResourceNotFoundException {
+		assertNotNull(traineeController.sentRequest(courseRequestDto));
 	}
 	
-	
 	@Test
-	public void approveRequest() throws ResourceNotFoundException {
-		Mockito.when(assignmentRepository.findById(1l)).thenReturn(Optional.of(assignemnt));
-		assertNotNull(trainerService.approveRequest(approveRequestDto));
+	public void approveRequestControllerTest() throws ResourceNotFoundException {
+		assertNotNull(trainerController.approveRequest(approveRequestDto));
 	}
 }
