@@ -81,18 +81,18 @@ public class TraineeServiceTest {
         trainer.setTrainerName("test1");
         trainer.setSkill("java");
 		
-		course1=new Course();
-		course1.setCourceId(Long.valueOf(1));
-		course1.setCourceName("Java");
-		course1.setCourceDuration(2);
+    	course1=new Course();
+		course1.setCourseId(Long.valueOf(1));
+		course1.setCourseName("Java");
+		course1.setCourseDuration(2);
 		course1.setTrainerId(trainer);
 		
 		course2=new Course();
-		course2.setCourceId(Long.valueOf(2));
-		course2.setCourceName("Java");
-		course2.setCourceDuration(2);
+		course2.setCourseId(Long.valueOf(2));
+		course2.setCourseName("Java");
+		course2.setCourseDuration(2);
 		course2.setTrainerId(trainer);
-		
+	
 		listCourse=new ArrayList<Course>();
 		listCourse.add(course1);
 		listCourse.add(course2);
