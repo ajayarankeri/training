@@ -8,4 +8,5 @@ import com.hcl.training.entity.Trainee;
 @Repository
 public interface TraineeRepository extends JpaRepository<Trainee, Long>{
 
+	Object findByTraineeEmail(String traineeEmail);
 }

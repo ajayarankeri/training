@@ -44,6 +44,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 			 List<String> details = new ArrayList<>();
 		        details.add(ex.getMessage());	        
 		        ErrorResponse error = new ErrorResponse("Server Error", details,Integer.toString(HttpStatus.NOT_ACCEPTABLE.value()));
-		        return new ResponseEntity<ErrorResponse>(error, HttpStatus.NOT_ACCEPTABLE);
+		        return new ResponseEntity<>(error, HttpStatus.NOT_ACCEPTABLE);
+		    }
+	 @ExceptionHandler(TraineeAlreadyAddedException.class)
+		@ResponseStatus(value = HttpStatus.NOT_ACCEPTABLE)
+		    public final ResponseEntity<ErrorResponse> traineeAlreadyAddedException(TraineeAlreadyAddedException ex, WebRequest request) {
+			 List<String> details = new ArrayList<>();
+		        details.add(ex.getMessage());	        
+		        ErrorResponse error = new ErrorResponse("Already added", details,Integer.toString(HttpStatus.NOT_ACCEPTABLE.value()));
+		        return new ResponseEntity<>(error, HttpStatus.NOT_ACCEPTABLE);
 		    }
 }
