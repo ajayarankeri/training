@@ -40,8 +40,6 @@ public class AssignmentService {
 		assignment.setFromDate(LocalDate.now());
 		assignment.setToDate(LocalDate.now());
 		assignmentRepository.save(assignment);
-		ResponseDto responseDto=new ResponseDto("sucess", 300, "request sent sucessully");
-		
-		return responseDto;
+		return new ResponseDto("sucess", 300, "request sent sucessully");
 	}
 }

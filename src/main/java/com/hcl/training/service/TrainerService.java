@@ -24,8 +24,7 @@ public class TrainerService {
 		assignment.setFromDate(LocalDate.parse(approveRequestDto.getFromDate()));
 		assignment.setToDate(LocalDate.parse(approveRequestDto.getToDate()));
 		assignmentRepository.save(assignment);
-       ResponseDto responseDto=new ResponseDto("sucess", 300, "request approved sucessully");
-		return responseDto;
+		return new ResponseDto("sucess", 300, "request approved sucessully");
 	}
 
 }
