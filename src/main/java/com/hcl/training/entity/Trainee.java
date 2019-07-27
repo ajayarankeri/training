@@ -20,24 +20,24 @@ public class Trainee {
 	private Long traineeId;
 	
 	@Column(name="trainee_name")
-	private Long traineeName;
+	private String traineeName;
 	
 	@Column(name="trainee_address")
-	private Long traineeAddress;
+	private String traineeAddress;
 	
 	@Column(name="trainee_age")
-	private Long traineeAge;
+	private int traineeAge;
 	
-	@Column(name="trainee_mail")
-	private Long traineeMail;
+	@Column(name="trainee_email")
+	private String traineeEmail;
 		
 	@Column(name="trainee_mobile")
 	private Long traineeMobile;
 	
 	@Column(name="trainee_skill")
-	private Long traineeSkill;
+	private String traineeSkill;
 	
 	@Column(name="trainee_proficiency")
-	private Long traineeProficiency;
+	private String traineeProficiency;
 
 }

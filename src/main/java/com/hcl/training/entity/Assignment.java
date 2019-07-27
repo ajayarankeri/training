@@ -37,7 +37,7 @@ public class Assignment {
 	private Course courseId;
 	
 	@Column(name="request_status")
-	private Long requestStatus;
+	private int requestStatus;
 	
 	@Column(name="from_date")
 	private LocalDate fromDate;

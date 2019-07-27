@@ -25,13 +25,13 @@ public class Course {
 	
 	
 	@Column(name="cource_name")
-	private Long courceName;
+	private String courceName;
 	
 	@Column(name="cource_description")
-	private Long courceDescription;
+	private String courceDescription;
 	
 	@Column(name="cource_duration")
-	private Long courceDuration;
+	private int courceDuration;
 	
 	
 	@OneToOne(fetch = FetchType.EAGER)
